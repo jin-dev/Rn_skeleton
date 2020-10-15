@@ -26,11 +26,21 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
+import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text, Fab } from 'native-base';
 
 declare const global: {HermesInternal: null | {}};
 
-const App = () => {
+//const App = () => {
+class App extends React.PureComponent {
+
+  constructor() {
+    super('');
+    this.state = {
+      active: false
+    };
+  }
+
+  render() {
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -47,21 +57,42 @@ const App = () => {
           <Right />
         </Header>
         <Content>
+        <Button light><Text> Light </Text></Button>
+        <Button primary><Text> Primary </Text></Button>
+          <Button success><Text> Success </Text></Button>
+          <Button info><Text> Info </Text></Button>
           <Text>
             This is Content Section
           </Text>
         </Content>
-        <Footer>
-          <FooterTab>
-            <Button full>
-              <Text>Footer</Text>
+
+
+        <Fab
+            active={this.state.active}
+            direction="up"
+            containerStyle={{ }}
+            style={{ backgroundColor: '#5067FF' }}
+            position="bottomRight"
+            onPress={() => this.setState({ active: !this.state.active })}>
+            <Icon name="share" />
+            <Button style={{ backgroundColor: '#34A34F' }}>
+              <Icon name="logo-whatsapp" />
             </Button>
-          </FooterTab>
-        </Footer>
+            <Button style={{ backgroundColor: '#3B5998' }}>
+              <Icon name="logo-facebook" />
+            </Button>
+            <Button disabled style={{ backgroundColor: '#DD5144' }}>
+              <Icon name="mail" />
+            </Button>
+          </Fab>
+
+       
+
+        
       </Container>
     </>
   );
-};
+}};
 
 const styles = StyleSheet.create({
   scrollView: {
