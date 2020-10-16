@@ -28,6 +28,9 @@ import {
 
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text, Fab } from 'native-base';
 
+import MainScreen from './src/screens/MainScreen';
+
+
 declare const global: {HermesInternal: null | {}};
 
 //const App = () => {
@@ -64,6 +67,7 @@ class App extends React.PureComponent {
           <Text>
             This is Content Section
           </Text>
+          <MainScreen />
         </Content>
 
 
